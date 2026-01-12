@@ -1,0 +1,83 @@
+from setuptools import setup, find_packages
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setup(
+    name="mahia-x",
+    version="1.0.0",
+    author="MAHIA-X Team",
+    author_email="mahia-x@example.com",
+    description="Advanced Mixture of Experts Framework with Comprehensive Training Controls",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/your-username/mahia-x",
+    packages=find_packages(),
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    ],
+    python_requires=">=3.9",
+    install_requires=[
+        "torch>=2.1.0",
+        "torchvision>=0.16.0",
+        "torchaudio>=2.1.0",
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "pandas>=2.0.0",
+        "scikit-learn>=1.3.0",
+        "matplotlib>=3.7.0",
+        "seaborn>=0.12.0",
+        "transformers>=4.33.0",
+        "datasets>=2.14.0",
+        "accelerate>=0.22.0",
+        "bitsandbytes>=0.41.0",
+        "torchao>=0.1.0",
+        "onnx>=1.14.0",
+        "onnxruntime>=1.15.0",
+        "streamlit>=1.26.0",
+        "fastapi>=0.103.0",
+        "uvicorn>=0.23.0",
+        "websocket-client>=1.6.0",
+        "psutil>=5.9.0",
+        "pynvml>=11.5.0",
+        "tqdm>=4.66.0",
+        "rich>=13.5.0",
+        "pyyaml>=6.0.0",
+        "requests>=2.31.0",
+    ],
+    extras_require={
+        "dev": [
+            "pytest>=7.4.0",
+            "black>=23.7.0",
+            "flake8>=6.0.0",
+            "mypy>=1.5.0",
+            "jupyter>=1.0.0",
+        ],
+        "distributed": [
+            "deepspeed>=0.10.0",
+            "mpi4py>=3.1.0",
+            "ray>=2.6.0",
+        ],
+        "dashboard": [
+            "streamlit>=1.26.0",
+            "fastapi>=0.103.0",
+            "uvicorn>=0.23.0",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "mahia-train=mahia_x.cli:train",
+            "mahia-eval=mahia_x.cli:evaluate",
+            "mahia-export=mahia_x.cli:export",
+            "mahia-dashboard=mahia_x.dashboard.cli:main",
+        ],
+    },
+)
